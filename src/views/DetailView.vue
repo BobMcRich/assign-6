@@ -1,13 +1,14 @@
 <script setup>
 import Details from "../components/Details.vue";
 import Footer from "../components/Footer.vue";
-
+import { useStore } from "../store"
+const store = useStore();
 </script>
 
 <template>
     <div class="hero">
     <div class="hero-content">
-      <h1>SuperFlims</h1>
+      <h1>{{ `Hello ${store.name} ${store.lastName}!` }}</h1>
       <div class="button-group">
         <button class="language-btn">English</button>
         <RouterLink to="/cart" class="button cart">cart</RouterLink>

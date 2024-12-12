@@ -1,19 +1,31 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import axios from "axios";
-import { useRoute } from "vue-router";
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import axios from 'axios';
+import { useStore } from '../store';
 
 const route = useRoute();
-const movieData = ref(null);
+const store = useStore();
+const movieData = ref(null);  
 
 onMounted(async () => {
-  const response = await axios.get(`https://api.themoviedb.org/3/movie/${route.params.id}?api_key=${import.meta.env.VITE_TMDB_KEY}&append_to_response=videos`);
-  movieData.value = response.data;
+  try {
+    const response = await axios.get(`https://api.themoviedb.org/3/movie/${route.params.id}?api_key=${import.meta.env.VITE_TMDB_KEY}&append_to_response=videos`);
+    movieData.value = response.data;  
+    console.log(movieData.value);
+  } catch (error) {
+    console.error('Error fetching movie data:', error);
+  }
 });
 </script>
 
 <template>
   <div v-if="movieData" class="movie-detail">
+    <button
+      @click="store.cart.set(route.params.id, { title: movieData.original_title, url: movieData.poster_path })"
+      class="movie-site">
+      Buy
+    </button>
     <div class="movie-header">
       <img :src="`https://image.tmdb.org/t/p/w500${movieData.poster_path}`" alt="Movie Poster" class="movie-poster" />
       <div class="movie-info">
