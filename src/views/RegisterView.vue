@@ -1,23 +1,27 @@
 <script setup>
 import { RouterLink, useRouter } from 'vue-router';
 import { ref } from 'vue';
-import { useStore } from "../store"
+import { useStore } from "../store";
 
 const store = useStore();
 const router = useRouter();
 const email = ref('');
 const password = ref('');
+const rePassword = ref(''); // This will hold the second password field's value
 const lastName = ref('');
 const name = ref('');
 
 const handleregister = () => {
-  if (password.value === "iloveyou") {
+  // Compare the password fields to ensure they match
+  if (password.value === rePassword.value) {
+    // Proceed with registration logic if passwords match
     store.email = email.value;
     store.name = name.value;
     store.lastName = lastName.value;
     router.push("/movies");
   } else {
-    alert("Invalid Password");
+    // Show an alert if passwords do not match
+    alert("Passwords do not match. Please try again.");
   }
 };
 </script>
@@ -35,8 +39,8 @@ const handleregister = () => {
           <input v-model="name" type="text" placeholder="Name" class="input-field" required />
           <input v-model="lastName" type="text" placeholder="Last Name" class="input-field" required />
           <input v-model="email" type="email" placeholder="Email" class="input-field" required />
-          <input v-model:="password" type="password" placeholder="Password" class="input-field" required>
-          <input v-model:="passward"type="password" placeholder="Re-Enter Password" class="input-field" required>
+          <input v-model="password" type="password" placeholder="Password" class="input-field" required />
+          <input v-model="rePassword" type="password" placeholder="Re-Enter Password" class="input-field" required />
           <button type="submit" class="button register">Register</button>
         </form>
       </div>

@@ -12,7 +12,7 @@ const store = useStore();
       <div class="button-group">
         <button class="language-btn">English</button>
         <RouterLink to="/cart" class="button cart">cart</RouterLink>
-        <RouterLink to="/settings" class="button settings">settings</RouterLink>
+        <RouterLink to="/setting" class="button settings">settings</RouterLink>
       </div>
     </div>
   </div>
