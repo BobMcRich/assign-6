@@ -3,18 +3,24 @@ import { RouterLink, useRouter } from 'vue-router';
 import { ref } from 'vue';
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
+import { useStore } from "../store";
 
 const router = useRouter();
-const password = ref('');
+const email = ref(''); 
+const password = ref(''); 
+
+const store = useStore();
 
 const handleLogin = () => {
   if (password.value === "iloveyou") {
-    router.push("/movies");
+    store.email = email.value; 
+    router.push("/movies"); 
   } else {
     alert("Invalid Password");
   }
 };
 </script>
+
 
 <template>
   <div class="hero">
@@ -35,6 +41,7 @@ const handleLogin = () => {
   </div>
   <Footer />
 </template>
+
 
 <style scoped>
 .hero {

@@ -34,11 +34,12 @@ const store = useStore();
 <template>
   <div class="hero">
     <div class="hero-content">
-      <h1>{{ `Hello ${store.name} ${store.lastName}!` }}</h1>
+      <h1>{{ `Hello ${store.name} ${store.lastName} ${store.email}!` }}</h1>
       <div class="button-group">
         <button class="language-btn">English</button>
         <RouterLink to="/cart" class="button cart">cart</RouterLink>
         <RouterLink to="/setting" class="button settings">settings</RouterLink>
+        <button class="logout">Logout</button>
       </div>
     </div>
   </div>
@@ -150,7 +151,7 @@ const store = useStore();
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); /* Star background for extra coolness */
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
   background-size: cover;
   opacity: 0.1; 
   pointer-events: none;
@@ -222,7 +223,14 @@ const store = useStore();
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+.logout {
+  background-color: #f44336;
+  color: white;
+}
 
+.logout:hover {
+  background-color: #d32f2f;
+}
 .register {
   background-color: #4CAF50;
 }
@@ -231,12 +239,31 @@ const store = useStore();
   background-color: #45a049;
 }
 
-.login {
-  background-color: #2196F3;
+.logout {
+  background-color: #f44336; /* Red background */
+  color: white; /* White text */
+  font-size: 1rem; /* Set the font size */
+  padding: 10px 20px; /* Add some padding for a better button size */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth transition on hover */
+  display: inline-block; /* Ensure the button aligns with others */
 }
 
-.login:hover {
-  background-color: #0b7dda;
+.logout:hover {
+  background-color: #d32f2f; /* Darker red when hovered */
+  transform: scale(1.05); /* Slight scale-up effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
+}
+
+.logout:active {
+  transform: scale(0.98); /* Slightly shrink the button when clicked */
+}
+
+.logout:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.5); /* Add a focus ring for accessibility */
 }
 
 .language-btn {

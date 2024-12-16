@@ -63,7 +63,6 @@ const handleSave = () => {
 </template>
 
 <style scoped>
-/* Global styles */
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
@@ -71,7 +70,6 @@ body {
   background-color: #f4f4f4;
 }
 
-/* Header Styling */
 .hero {
   background: linear-gradient(135deg, #FF6F61, #D83A6A);
   display: flex;
@@ -123,7 +121,6 @@ body {
   pointer-events: none;
 }
 
-/* Button group styling */
 .button-group {
   display: flex;
   justify-content: flex-start;
@@ -168,7 +165,6 @@ body {
   background-color: #d32f2f;
 }
 
-/* Settings page styling */
 .settings {
   padding: 30px;
   text-align: center;
@@ -187,7 +183,6 @@ body {
   letter-spacing: 1px;
 }
 
-/* Form container styles */
 .form-container {
   background-color: rgba(255, 255, 255, 0.85);
   padding: 40px;
@@ -198,7 +193,6 @@ body {
   margin: 0 auto;
 }
 
-/* Individual form field styles */
 .form-field {
   margin-bottom: 20px;
   text-align: left;
@@ -228,13 +222,11 @@ body {
   border-color: #FF6F61;
 }
 
-/* Disable input field styling for email */
 .input-field[disabled] {
   background-color: #e0e0e0;
   cursor: not-allowed;
 }
 
-/* Save button styles */
 .save-button {
   width: 100%;
   padding: 14px;
@@ -252,7 +244,6 @@ body {
   background-color: #D83A6A;
 }
 
-/* Footer styling */
 Footer {
   background-color: #282c34;
   color: white;
@@ -266,7 +257,6 @@ Footer {
   margin: 0;
 }
 
-/* Responsive styling for smaller screens */
 @media (max-width: 768px) {
   .settings {
     padding: 20px;

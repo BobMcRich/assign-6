@@ -13,6 +13,7 @@ const store = useStore();
         <button class="language-btn">English</button>
         <RouterLink to="/cart" class="button cart">cart</RouterLink>
         <RouterLink to="/setting" class="button settings">settings</RouterLink>
+        <button class="logout">Logout</button>
       </div>
     </div>
   </div>
@@ -114,7 +115,23 @@ const store = useStore();
 .language-btn:hover {
   background-color: #FB8C00;
 }
+.logout {
+  background-color: #f44336; 
+  color: white; 
+  font-size: 1rem; 
+  padding: 10px 20px;
+  border: none; 
+  border-radius: 5px;
+  cursor: pointer; 
+  transition: all 0.3s ease; 
+  display: inline-block; 
+}
 
+.logout:hover {
+  background-color: #d32f2f; 
+  transform: scale(1.05); 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 .hero::before {
   content: '';
   position: absolute;

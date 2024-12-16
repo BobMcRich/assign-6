@@ -7,20 +7,17 @@ const store = useStore();
 const router = useRouter();
 const email = ref('');
 const password = ref('');
-const rePassword = ref(''); // This will hold the second password field's value
+const rePassword = ref(''); 
 const lastName = ref('');
 const name = ref('');
 
 const handleregister = () => {
-  // Compare the password fields to ensure they match
   if (password.value === rePassword.value) {
-    // Proceed with registration logic if passwords match
     store.email = email.value;
     store.name = name.value;
     store.lastName = lastName.value;
     router.push("/movies");
   } else {
-    // Show an alert if passwords do not match
     alert("Passwords do not match. Please try again.");
   }
 };
